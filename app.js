@@ -2,9 +2,9 @@
 // lkin schema or model jo h na wo models mai user.js mai hai...
 import express from 'express';
 // import user.js here..
-import userRouter from "../Backend Todo Deployment/routes/user.js";
+import userRouter from "./routes/user.js";
 // import task.js here:
-import taskRouter from "../Backend Todo Deployment/routes/task.js";
+import taskRouter from "./routes/task.js";
 // end mai jo env fil banae hai oska path b isk andr dena hai mjhy..
 import { config } from 'dotenv';
 import cookieParser from 'cookie-parser';
