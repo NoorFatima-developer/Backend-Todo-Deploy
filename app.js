@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin: [process.env.FRONTEND_URL],
+        origin: [process.env.FRONTEND_URI],
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Authorization'],
         // frontend pr headers mai cookie or b data tbtk ni pohnchyg jbtk hum credentials: true set ni krygy
