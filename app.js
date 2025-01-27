@@ -29,7 +29,7 @@ app.use(
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Authorization'],
         // frontend pr headers mai cookie or b data tbtk ni pohnchyg jbtk hum credentials: true set ni krygy
-        credentials: true
+        credentials: true,
     })
 )
 // and ab m isko update or delete mai use krskti hon..
