@@ -6,7 +6,7 @@ export const sendCookie = (user, res, statusCode = 200, message) => {
 
     res.status(statusCode).cookie("token", token, {
         httpOnly: true,
-        maxAge: 40 * 60 * 1000,
+        maxAge: 15 * 60 * 1000,
          // by default lax hota hai cookie islye postman mai work krta hai but m chahti o jb front end 
         // ko backend sy attack krna ho tb sameSite: none ho and secure: true ho na k lax.. 
         // so do this:
