@@ -80,46 +80,46 @@ export const login = async(req, res, next) => {
 
 // 01----way to access data by id...
 
-// get:(Remember ye method tb jb hmry ps 1 ya 2 routes hon aghr zada routes hain tu ye bht lengthy hojyega and osklye hum log use krygy 
-// IsAuthenticator Middleware and osk bary mai meny sara middleware folder m solve kea hai wo method:)
-    export const getmyProfileWithsimplycookiedecodedtoken = async(req, res, next) => {
-    try {
-        // ye hum tb ude krty haun jb hmy postman mai as a query ya as a param id deni o tb..
-    // const {id} = req.query;
-    // or
-    // const id = req.query.id;
-    // or
-    // const id = req.params.id;
-    // lkin iss case mai me na query m dena chahti o na param mai tu i will use htis:
-    const id = "myid";
-    // remember k abhi hum log login hain and hum token sy id access krskty hain
-    // cookies sy so jao app.js mai and middleware cookieParser use kro..s
+// // get:(Remember ye method tb jb hmry ps 1 ya 2 routes hon aghr zada routes hain tu ye bht lengthy hojyega and osklye hum log use krygy 
+// // IsAuthenticator Middleware and osk bary mai meny sara middleware folder m solve kea hai wo method:)
+//     export const getmyProfileWithsimplycookiedecodedtoken = async(req, res, next) => {
+//     try {
+//         // ye hum tb ude krty haun jb hmy postman mai as a query ya as a param id deni o tb..
+//     // const {id} = req.query;
+//     // or
+//     // const id = req.query.id;
+//     // or
+//     // const id = req.params.id;
+//     // lkin iss case mai me na query m dena chahti o na param mai tu i will use htis:
+//     const id = "myid";
+//     // remember k abhi hum log login hain and hum token sy id access krskty hain
+//     // cookies sy so jao app.js mai and middleware cookieParser use kro..s
 
-    const { token }  = req.cookies;
-    console.log(token);
+//     const { token }  = req.cookies;
+//     console.log(token);
     
-    if(!token){
-        return res.status(401).json({
-            success: false,
-            message: "Login First",
-        })
-    }
+//     if(!token){
+//         return res.status(401).json({
+//             success: false,
+//             message: "Login First",
+//         })
+//     }
 
-    //token tu oper cookies sy araha hai lkin ye line ensure krygi k kea token valid hai ya expired aghr valid h wo agy bejdygi next line mai and hum     
-    const decoded = jwt.verify(token, process.env.JWT_SECRET); 
-    // ab wo iss line mai decoded._id ko oper token jo aya hai oss token ki id wala data return krdyga..   
-    const user = await User.findById(decoded._id);
+//     //token tu oper cookies sy araha hai lkin ye line ensure krygi k kea token valid hai ya expired aghr valid h wo agy bejdygi next line mai and hum     
+//     const decoded = jwt.verify(token, process.env.JWT_SECRET); 
+//     // ab wo iss line mai decoded._id ko oper token jo aya hai oss token ki id wala data return krdyga..   
+//     const user = await User.findById(decoded._id);
     
-    res.status(200).json({
-        success: true,
-        // ye token console m check klye tha bs..
-        // user: "ahjbhhjjuuii",
-        user,
-    })
-    } catch (error) {
-        next(error)
-    }
-};
+//     res.status(200).json({
+//         success: true,
+//         // ye token console m check klye tha bs..
+//         // user: "ahjbhhjjuuii",
+//         user,
+//     })
+//     } catch (error) {
+//         next(error)
+//     }
+// };
 
 // 02----way to access data by id...(using authenticated middleware)
 
