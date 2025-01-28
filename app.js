@@ -17,7 +17,7 @@ import cors from 'cors';
 export const app = express();
 
 config({
-    path: './data/config.env'
+    path: './data/config.env',
 })
 
 // Middleware:(and middleware must use before userRouter)
@@ -27,15 +27,12 @@ app.use(
     cors({
         origin: [process.env.FRONTEND_URI],
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Authorization'],
+        // allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Authorization'],
         // frontend pr headers mai cookie or b data tbtk ni pohnchyg jbtk hum credentials: true set ni krygy
         credentials: true,
     })
 )
-// and ab m isko update or delete mai use krskti hon..
-// and code meny aleda file mai likha hai middleware k andr err.js k andr...
-// using error Middleware:
-app.use(errorMiddleware)
+
 
 // use userRouter:(and router ko hum log use hi islye krty hain ta k hum log prefix add krskain)
 // jesy mai chahti o k routers/user k andr jutny b get post hain or onka jo b router hai hr 1 k start mai /users daldo 
@@ -46,3 +43,9 @@ app.use("/api/v1/tasks", taskRouter);
 app.get('/', (req, res) => {
     res.send('Hello World!');  
 })
+
+
+// and ab m isko update or delete mai use krskti hon..
+// and code meny aleda file mai likha hai middleware k andr err.js k andr...
+// using error Middleware:
+app.use(errorMiddleware)
