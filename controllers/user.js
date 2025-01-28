@@ -114,7 +114,7 @@ export const login = async(req, res, next) => {
         success: true,
         // ye token console m check klye tha bs..
         // user: "ahjbhhjjuuii",
-        user:user,
+        user,
     })
     } catch (error) {
         next(error)
