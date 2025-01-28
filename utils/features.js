@@ -6,7 +6,7 @@ export const sendCookie = (user, res, statusCode = 200, message) => {
 
     res.status(statusCode).cookie("token", token, {
         httpOnly: true,
-        maxAge: 15 * 60 * 1000,
+        maxAge: 40 * 60 * 1000,
     }).json({
         success: true,
         message,
